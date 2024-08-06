@@ -39,10 +39,12 @@ softdep snd_hda_intel pre: vfio-pci
 # Enable vfio in kernel modules
 Add the kernel modules to enable vfio to nano /etc/modules
 
+```
 vfio
 vfio_iommu_type1
 vfio_pci
 vfio_virqfd
+```
 
 # Edit/Update the GRUB
 Now, at this step most instruction will add iommu command which i found will not work, just leave it as default. It should look like below, if no change it and update grub.
@@ -62,23 +64,26 @@ update-initramfs -u -k all
 # Checking the /dev/dri 
 Reboot, and check /dev/dri directory should not be empty.
 
+```
 root@PROXMOX:~# ls -l /dev/dri
 total 0
 drwxr-xr-x 2 root root         80 Aug  5 23:24 by-path
 crw-rw---- 1 root video  226,   0 Aug  5 23:24 card0
 crw-rw---- 1 root render 226, 128 Aug  5 23:24 renderD128
+```
 
 # Installing Plex via TTeck scripts
 Install plex from here https://tteck.github.io/Proxmox/#plex-media-server-lxc with the following script
 
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/plex.sh)"
+`bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/plex.sh)"`
  
 Choose Advance and yes to privilege, as install as privilege will add passthrough mount and groups. Look in
 
-nano /etc/pve/lxc/100.conf
+`nano /etc/pve/lxc/100.conf`
 
 It should look something like this (replace 100 with your own container).
 
+```
 arch: amd64
 cores: 2
 features: fuse=1,nesting=1
@@ -109,16 +114,19 @@ lxc.mount.entry: /dev/dri            dev/dri            none bind,optional,creat
 lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
 lxc.mount.entry: /dev/vfio           dev/vfio           none bind,optional,create=dir
 lxc.mount.entry: /dev/dvb            dev/dvb            none bind,optional,create=dir 0 0
+```
 
 You dont have to passthrough every device like this but since i only use it as a headless plex box leave it as is so everytime i plug in eg the TV tunner i dont have to edit the file again.
 
 # Adding permission for pled user
 Open the plex container console and add plex user to the video card group for permission. Add one at a time to watch for errors.
 
+```
 usermod -a -G video plex
 usermod -a -G render plex
 usermod -a -G input plex
 usermod -a -G ssl-cert plex
+```
 
 # Stream and confirm HW Enconding work
 Reboot and stream something to your phone or devices that doesn't support direct play so it will force to transcode. Look in your plex dashboard it should show what is playing with the word transcode (HW). See your CPU usage it should be minimum. If the word (hw) is not there then your CPU usage will shoot to 100% that means it not working.
