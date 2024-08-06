@@ -134,9 +134,17 @@ Reboot and stream something to your phone or devices that doesn't support direct
 
 # Limitation
 Premium Plex require for ennabling HW Encoding.
-This is a write up for enabling HW Encoding for Plex container, it is not for PCI/GPU passthrough.
-There is an excellent write up for GPU passthrough for Windows here
+This is a write up for enabling HW Encoding for Plex container, it is not for PCI/GPU passthrough,
+there is an excellent write up for GPU passthrough for Windows here
+https://github.com/isc30/ryzen-7000-series-proxmox/tree/main
+
 # Credits
+During my week long search for a solution i have been to many sites and forum. I Can not list them all here.
+My original inspiration is from here
+https://www.reddit.com/r/MiniPCs/s/nhsCRhGOQD
+
+For those who use Proxmox, TTeck got an excellent collection of scripts from here
+https://tteck.github.io/Proxmox/
 
 
 
