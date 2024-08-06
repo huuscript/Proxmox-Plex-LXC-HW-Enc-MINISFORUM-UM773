@@ -10,10 +10,14 @@ First thing Go to bios and disable IOMMU. Yes disable it.. this what got me stum
 # Getting the GPU PCI ID
 We need to get the GPU PCI ID using this command:
 
-lspci -nn | grep -e ‘AMD/ATI’
+`lspci -nn | grep -e ‘AMD/ATI’`
 
-34:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Rembrandt [Radeon 680M] [1002:1681] (rev 0a) 34:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Rembrandt Radeon High Definition Audio Controller [1002:1640]
+The result should get something like this
 
+```
+34:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Rembrandt [Radeon 680M] [1002:1681] (rev 0a)
+34:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Rembrandt Radeon High Definition Audio Controller [1002:1640]
+```
 Note GPU: 1002:1681
 
 Audio Device: 1002:1640
@@ -21,12 +25,16 @@ Audio Device: 1002:1640
 # Adding the PCI ID / Preload to vfio.conf
 Add options vfio-pci ids=1002:1681,1002:1640 to /etc/modprobe.d/vfio.conf
 
-nano /etc/modprobe.d/vfio.conf and add the following now it should look like this
+`nano /etc/modprobe.d/vfio.conf`
 
+and add the following now it should look like this
+
+```
 options vfio-pci ids=1002:1681,1002:1640
 softdep radeon pre: vfio-pci
 softdep amdgpu pre: vfio-pci
 softdep snd_hda_intel pre: vfio-pci
+```
 
 # Enable vfio in kernel modules
 Add the kernel modules to enable vfio to nano /etc/modules
