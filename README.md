@@ -47,11 +47,13 @@ vfio_virqfd
 # Edit/Update the GRUB
 Now, at this step most instruction will add iommu command which i found will not work, just leave it as default. It should look like below, if no change it and update grub.
 
+```
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
 GRUB_CMDLINE_LINUX_DEFAULT="quiet"
 GRUB_CMDLINE_LINUX=""
+```
 
 update-grub 
 
