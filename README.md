@@ -130,7 +130,7 @@ usermod -a -G ssl-cert plex
 
 # Stream and confirm HW Enconding work
 Reboot and stream something to your phone or devices that doesn't support direct play so it will force to transcode. Look in your plex dashboard it should show what is playing with the word transcode (HW). See your CPU usage it should be minimum. If the word (hw) is not there then your CPU usage will shoot to 100% that means it not working.
-
+![HW Encode Success](IMG_1167.png)
 
 
 
