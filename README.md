@@ -1,5 +1,5 @@
 # Proxmox Plex LXC with HW Encoding on MINISFORUM-UM773 Lite Ryzen7 7735HS
-After many weeks of trial and error I finally manage to get Hardware encoding working with a Plex Proxmox container on the Minisforum UM773 Lite Ryzen7 7735HS. Its not difficult, it actually eqsier then conventional passthrough method that we so used to, going into it with previous experience of PCI and GPU passthrough that got me into trouble.
+After several weeks of trial and error, I successfully enabled hardware encoding on a Plex Proxmox container using the Minisforum UM773 Lite with a Ryzen 7 7735HS. Surprisingly, it was easier than the conventional passthrough method that we so used to, going into it with previous experience of PCI and GPU passthrough that got me into trouble.
 
 # Prequesite 
 Assume you already have Proxmox 8 installed.
