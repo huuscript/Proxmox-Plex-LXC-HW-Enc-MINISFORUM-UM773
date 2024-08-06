@@ -5,8 +5,7 @@ After several weeks of trial and error, I successfully enabled hardware encoding
 Assume you already have Proxmox 8 installed.
 
 # BIOS Setting
-First thing Go to bios and disable IOMMU. Yes disable it.. this what got me stump for days. If you enable it, proxmox wont install the drivers and the /dev/dri directory will be empty and this is the dir you need to passthrough to plex lxc
-
+First, access the BIOS and disable IOMMU. Disabling it is crucial, as enabling it prevents Proxmox from installing the necessary drivers, resulting in an empty /dev/dri directory, which is required for Plex LXC passthrough.
 # Getting the GPU PCI ID
 We need to get the GPU PCI ID using this command:
 
