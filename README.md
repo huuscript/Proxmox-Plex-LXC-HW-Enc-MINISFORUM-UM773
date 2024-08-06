@@ -46,7 +46,7 @@ vfio_virqfd
 ```
 
 # Edit/Update the GRUB
-Now, at this step most instruction will add iommu command which i found will not work, just leave it as default. It should look like below, if no change it and update grub.
+At this stage, most instructions suggest adding the IOMMU command, but I found this doesn’t work. Instead, leave it at the default setting. Ensure it appears as shown below, and if necessary edit it, and update GRUB.
 
 ```
 GRUB_DEFAULT=0
