@@ -88,10 +88,10 @@ cores: 2
 features: fuse=1,nesting=1
 hostname: plex
 memory: 2048
-net0: name=eth0,bridge=vmbr0,hwaddr=BC:24:11:69:04:9B,ip=dhcp,type=veth
+net0: name=eth0,bridge=vmbr0,hwaddr=XX:XX:XX:XX:XX:XX,ip=dhcp,type=veth
 onboot: 0
 ostype: ubuntu
-rootfs: local:107/vm-107-disk-0.raw,size=8G
+rootfs: local:100/vm-100-disk-0.raw,size=8G
 swap: 512
 tags: proxmox-helper-scripts
 lxc.cgroup2.devices.allow: a
