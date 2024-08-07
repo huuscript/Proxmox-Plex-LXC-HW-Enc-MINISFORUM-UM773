@@ -117,7 +117,7 @@ lxc.mount.entry: /dev/dvb            dev/dvb            none bind,optional,creat
 
 You don’t need to passthrough every device this way. Since I use it solely as a headless Plex box, I leave it as is. This way, I don’t have to edit the file each time I plug in a device, such as a TV tuner.
 
-# Adding permission for pled user
+# Adding permission for Plex user
 Open the plex container console and add plex user to the video card group for permission. Add one at a time to watch for errors.
 
 ```
@@ -128,7 +128,7 @@ usermod -a -G ssl-cert plex
 ```
 
 # Stream and confirm HW Enconding
-Reboot and stream something to your phone or devices that doesn't support direct play so it will force to transcode. Look in your plex dashboard it should show what is playing with the word transcode (HW). See your CPU usage it should be minimum. If the word (hw) is not there then your CPU usage will shoot to 100% that means it not working.
+Reboot your system and stream content to a device that doesn’t support direct play to force transcoding. Check your Plex dashboard; it should display “transcode (HW)” next to the playing content. Your CPU usage should be minimal. If “(HW)” is missing, your CPU usage will spike to 100%, indicating that hardware transcoding is not working.
 ![HW Encode Success](IMG_1167.jpeg)
 
 # Limitation
