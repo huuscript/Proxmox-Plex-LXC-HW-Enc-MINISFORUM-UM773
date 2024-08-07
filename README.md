@@ -115,7 +115,7 @@ lxc.mount.entry: /dev/vfio           dev/vfio           none bind,optional,creat
 lxc.mount.entry: /dev/dvb            dev/dvb            none bind,optional,create=dir 0 0
 ```
 
-You dont have to passthrough every device like this but since i only use it as a headless plex box leave it as is so everytime i plug in eg the TV tunner i dont have to edit the file again.
+You don’t need to passthrough every device this way. Since I use it solely as a headless Plex box, I leave it as is. This way, I don’t have to edit the file each time I plug in a device, such as a TV tuner.
 
 # Adding permission for pled user
 Open the plex container console and add plex user to the video card group for permission. Add one at a time to watch for errors.
